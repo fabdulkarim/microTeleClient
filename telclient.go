@@ -1,11 +1,11 @@
 package telclient
 
 import (
-	"fmt"
-	"strings"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
+	"strings"
 
 	"k8s.io/klog"
 )
@@ -47,7 +47,7 @@ func New(token string, options ...Option) *Client {
 }
 
 func stitch(note *CrashNotification) {
-	s:= []strings{
+	s := []strings{
 		"**Title**",
 		"```",
 		note.Title,
@@ -59,7 +59,7 @@ func stitch(note *CrashNotification) {
 		"**Logs**",
 		"```",
 		note.Logs,
-		"```"
+		"```",
 	}
 
 	if note.Reason != "" {
@@ -67,7 +67,7 @@ func stitch(note *CrashNotification) {
 			"**Reason**",
 			"```",
 			note.Reason,
-			"```"
+			"```",
 		}
 		s = append(s, t)
 	}

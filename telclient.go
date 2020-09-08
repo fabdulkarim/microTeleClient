@@ -1,3 +1,5 @@
+package telclient
+
 import (
 	"fmt"
 	"strings"

@@ -56,7 +56,7 @@ func stitch(note *CrashNotification) {
 		"```",
 		note.Message,
 		"```",
-		"**Logs**"
+		"**Logs**",
 		"```",
 		note.Logs,
 		"```"
